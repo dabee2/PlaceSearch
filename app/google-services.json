@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "253191919380",
+    "project_id": "placesearch-4fd73",
+    "storage_bucket": "placesearch-4fd73.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:253191919380:android:d8cf774f7dd8d9a111d401",
+        "android_client_info": {
+          "package_name": "com.dabee.tpquickplacebykakaosearchapi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "253191919380-74suv3knmg7jankuo22nd9vvgh6n1n0m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dabee.tpquickplacebykakaosearchapi",
+            "certificate_hash": "59fd34cd86a67f0e374c111732b144191ea26448"
+          }
+        },
+        {
+          "client_id": "253191919380-d8prv9jmjptcq7410f140dpflgi73dhc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCH_CuLW4bLz5abv3JBU_DHQAWLq4TSE58"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "253191919380-d8prv9jmjptcq7410f140dpflgi73dhc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
