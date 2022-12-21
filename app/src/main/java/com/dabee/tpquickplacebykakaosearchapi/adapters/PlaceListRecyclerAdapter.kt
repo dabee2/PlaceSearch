@@ -32,12 +32,11 @@ class PlaceListRecyclerAdapter (val context:Context, val documents:MutableList<P
         holder.binding.tvPhone.text = place.phone
 
         // 아이템뷰를 클릭했을때 장소에 대한
-        holder.itemView.setOnClickListener{
+        holder.binding.root.setOnClickListener{
             val intent:Intent = Intent(context,PlaceUrlActivity::class.java)
             intent.putExtra("place_url",place.place_url)
             context.startActivity(intent)
         }
-
 
 
     }

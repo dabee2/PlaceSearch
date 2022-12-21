@@ -14,9 +14,10 @@
 
         <TextView
             android:id="@+id/tv_place_name"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="place_name"
+            android:layout_toLeftOf="@+id/tv_place_distance"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:padding="4dp"/>

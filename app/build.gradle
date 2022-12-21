@@ -45,6 +45,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'org.chromium.net:cronet-embedded:106.5249.126'
 
+
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
@@ -66,4 +67,7 @@ dependencies {
 
     // Google Fused Location API Library
     implementation 'com.google.android.gms:play-services-location:21.0.1'
+
+    // Kakao Map SDK... library jar...
+    implementation files('libs/libDaumMapAndroid.jar')
 }

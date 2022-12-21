@@ -57,6 +57,10 @@
                     android:scheme="kakaoe09c24c3cdb65dd57a484ff0812f078c" />
             </intent-filter>
         </activity>
+
+        <!--   카카오지도 사용에 대한 API 키 등록    -->
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="e09c24c3cdb65dd57a484ff0812f078c"/>
+
     </application>
 
 </manifest>

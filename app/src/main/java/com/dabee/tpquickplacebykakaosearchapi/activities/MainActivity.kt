@@ -154,7 +154,7 @@ class MainActivity : AppCompatActivity() {
     private fun searchPlaces(){
 
         //검색에 필요한 요청변수들.. 확인 [ 검색어, 내 위치 좌표 ]
-        Toast.makeText(this, "$searchQuery : ${myLocation?.latitude},${myLocation?.longitude}", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(this, "$searchQuery : ${myLocation?.latitude},${myLocation?.longitude}", Toast.LENGTH_SHORT).show()
 
         //Kakao keyword search API base url 레트로핏 객체 생성
         val retrofit: Retrofit = RetrofitHelper.getRetrofitInstance("https://dapi.kakao.com")
@@ -170,7 +170,7 @@ class MainActivity : AppCompatActivity() {
                 var meta: PlaceMeta? = searchPlaceResponse?.meta
                 var documents:MutableList<Place>? =searchPlaceResponse?.documents
 
-                AlertDialog.Builder(this@MainActivity).setMessage("${meta?.total_count}\n${documents?.get(0)?.place_name}").show()
+//                AlertDialog.Builder(this@MainActivity).setMessage("${meta?.total_count}\n${documents?.get(0)?.place_name}").show()
 
                 //무조건 검색이 완료되면 List Fragment를 먼저 보여주기.
                 supportFragmentManager.beginTransaction().replace(R.id.container_fragment, SearchListFragment()).commit()
