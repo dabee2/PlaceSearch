@@ -28,7 +28,7 @@ class PlaceListRecyclerAdapter (val context:Context, val documents:MutableList<P
 
         holder.binding.tvPlaceName.text = place.place_name
         holder.binding.tvAddress.text = if(place.road_address_name=="") place.address_name else place.road_address_name
-        holder.binding.tvPlaceDistance.text = "${place.distance}m"
+        holder.binding.tvPlaceDistance.text = if(place.distance!="")"${place.distance}m" else ""
         holder.binding.tvPhone.text = place.phone
 
         // 아이템뷰를 클릭했을때 장소에 대한

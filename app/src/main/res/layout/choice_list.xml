@@ -6,6 +6,16 @@
     android:layout_height="match_parent">
 
     <ImageView
+        android:id="@+id/choice_convenienceStore"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_baseline_local_convenience_store_24"
+        android:padding="8dp"
+        app:tint="@color/brand"
+        android:layout_margin="8dp"
+        android:background="@drawable/bg_choice_selected"/>
+
+    <ImageView
         android:id="@+id/choice_wc"
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -13,7 +23,9 @@
         android:padding="8dp"
         android:layout_margin="8dp"
         app:tint="@color/brand"
-        android:background="@drawable/bg_choice_selected"/>
+        android:background="@drawable/bg_choice"/>
+
+
 
     <ImageView
         android:id="@+id/choice_movie"
@@ -24,6 +36,58 @@
         android:layout_margin="8dp"
         app:tint="@color/brand"
         android:background="@drawable/bg_choice"/>
+
+    <ImageView
+        android:id="@+id/choice_food"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_baseline_food_bank_24"
+        android:padding="8dp"
+        android:layout_margin="8dp"
+        app:tint="@color/brand"
+        android:background="@drawable/bg_choice"/>
+
+    <ImageView
+        android:id="@+id/choice_cafe"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_baseline_local_cafe_24"
+        android:padding="8dp"
+        android:layout_margin="8dp"
+        app:tint="@color/brand"
+        android:background="@drawable/bg_choice"/>
+
+    <ImageView
+        android:id="@+id/choice_subWay"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_baseline_subway_24"
+        android:padding="8dp"
+        android:layout_margin="8dp"
+        app:tint="@color/brand"
+        android:background="@drawable/bg_choice"/>
+
+    <ImageView
+        android:id="@+id/choice_pharmacy"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_baseline_medication_24"
+        android:padding="8dp"
+        app:tint="@color/brand"
+        android:layout_margin="8dp"
+        android:background="@drawable/bg_choice"/>
+
+    <ImageView
+        android:id="@+id/choice_hospital"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_baseline_local_hospital_24"
+        android:padding="8dp"
+        android:layout_margin="8dp"
+        app:tint="@color/brand"
+        android:background="@drawable/bg_choice"/>
+
+
 
     <ImageView
         android:id="@+id/choice_gas"
@@ -45,15 +109,7 @@
         android:layout_margin="8dp"
         android:background="@drawable/bg_choice"/>
 
-    <ImageView
-        android:id="@+id/choice_pharmacy"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_baseline_medication_24"
-        android:padding="8dp"
-        app:tint="@color/brand"
-        android:layout_margin="8dp"
-        android:background="@drawable/bg_choice"/>
+
 
     <ImageView
         android:id="@+id/choice_park"
@@ -65,60 +121,6 @@
         app:tint="@color/brand"
         android:src="@drawable/ic_baseline_park_24" />
 
-    <ImageView
-        android:id="@+id/choice_food"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_baseline_fastfood_24"
-        android:padding="8dp"
-        android:layout_margin="8dp"
-        app:tint="@color/brand"
-        android:background="@drawable/bg_choice"/>
 
-    <ImageView
-        android:id="@+id/choice_01"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_baseline_ev_station_24"
-        android:padding="8dp"
-        app:tint="@color/brand"
-        android:layout_margin="8dp"
-        android:background="@drawable/bg_choice"/>
-    <ImageView
-        android:id="@+id/choice_02"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_baseline_ev_station_24"
-        android:padding="8dp"
-        android:layout_margin="8dp"
-        app:tint="@color/brand"
-        android:background="@drawable/bg_choice"/>
-    <ImageView
-        android:id="@+id/choice_03"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_baseline_ev_station_24"
-        android:padding="8dp"
-        android:layout_margin="8dp"
-        app:tint="@color/brand"
-        android:background="@drawable/bg_choice"/>
-    <ImageView
-        android:id="@+id/choice_04"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_baseline_ev_station_24"
-        android:padding="8dp"
-        android:layout_margin="8dp"
-        app:tint="@color/brand"
-        android:background="@drawable/bg_choice"/>
-    <ImageView
-        android:id="@+id/choice_05"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_baseline_ev_station_24"
-        android:padding="8dp"
-        android:layout_margin="8dp"
-        app:tint="@color/brand"
-        android:background="@drawable/bg_choice"/>
 
 </LinearLayout>

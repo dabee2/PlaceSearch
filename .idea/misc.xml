@@ -24,6 +24,10 @@
         <entry key="..\:/android/PlaceSearch/app/src/main/res/layout/activity_login.xml" value="0.5494791666666666" />
         <entry key="..\:/android/PlaceSearch/app/src/main/res/layout/activity_place_url.xml" value="0.5494791666666666" />
         <entry key="..\:/android/PlaceSearch/app/src/main/res/layout/activity_signup.xml" value="0.5494791666666666" />
+        <entry key="..\:/android/PlaceSearch/app/src/main/res/layout/choice_list.xml" value="0.5453125" />
+        <entry key="..\:/android/PlaceSearch/app/src/main/res/layout/fragment_search_list.xml" value="0.5494791666666666" />
+        <entry key="..\:/android/PlaceSearch/app/src/main/res/layout/fragment_search_map.xml" value="0.5453125" />
+        <entry key="..\:/android/PlaceSearch/app/src/main/res/layout/recycler_item_list_fragment.xml" value="0.5453125" />
       </map>
     </option>
   </component>

@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.os.Looper
 import android.view.Menu
 import android.view.MenuItem
@@ -13,6 +14,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
+import androidx.core.view.get
 import com.dabee.tpquickplacebykakaosearchapi.R
 import com.dabee.tpquickplacebykakaosearchapi.databinding.ActivityMainBinding
 import com.dabee.tpquickplacebykakaosearchapi.fragments.SearchListFragment
@@ -35,7 +37,7 @@ class MainActivity : AppCompatActivity() {
     
     // 카카오 지역검색(로컬) API -- 카카오개발자 사이트 참고
     // 1. 검색 장소명
-    var searchQuery:String= "화장실" //앱 초기 키워드 - 내 주변 개방 화장실
+    var searchQuery:String= "편의점" //앱 초기 키워드 - 내 주변 개방 화장실
     // 2. 현재 내위치 정보 객체 (위도, 경도 정보를 멤버로 보유)
     var myLocation:Location?=null
 
@@ -44,6 +46,8 @@ class MainActivity : AppCompatActivity() {
 
     // 카카오 검색 결과 응답객체 참조변수
     var searchPlaceResponse: KakaoSearchPlaceResponse? = null
+
+    var tabSelect = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,8 +64,12 @@ class MainActivity : AppCompatActivity() {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 if (tab?.text=="LIST"){
                     supportFragmentManager.beginTransaction().replace(R.id.container_fragment,SearchListFragment()).commit()
+                    tabSelect=1
                 }else if(tab?.text=="MAP"){
-                    supportFragmentManager.beginTransaction().replace(R.id.container_fragment, SearchMapFragment()).commit()
+                    var state=false
+                    supportFragmentManager.beginTransaction().replace(R.id.container_fragment, SearchMapFragment(state)).commit()
+                    tabSelect=2
+
                 }
 
             }
@@ -80,6 +88,9 @@ class MainActivity : AppCompatActivity() {
         binding.etSearch.setOnEditorActionListener { v, actionId, event ->
             searchQuery=binding.etSearch.text.toString()
             searchPlaces()
+
+            binding.etSearch.text.clear()
+            binding.etSearch.clearFocus()
 
             // return 값이 있는 메소드
             // 소프트키보드의 액션버튼이 클릭되었을때 여기서 모든 액션을 소모하지 않겠다는 뜻으로 false 리턴
@@ -171,12 +182,27 @@ class MainActivity : AppCompatActivity() {
                 var documents:MutableList<Place>? =searchPlaceResponse?.documents
 
 //                AlertDialog.Builder(this@MainActivity).setMessage("${meta?.total_count}\n${documents?.get(0)?.place_name}").show()
+                Toast.makeText(this@MainActivity, "${searchQuery} 검색", Toast.LENGTH_SHORT).show()
 
-                //무조건 검색이 완료되면 List Fragment를 먼저 보여주기.
-                supportFragmentManager.beginTransaction().replace(R.id.container_fragment, SearchListFragment()).commit()
 
-                // 탭버튼의 위치를 List Fragment Tab 으로 변경
-                binding.tabLayout.getTabAt(0)?.select()
+
+                if (tabSelect==2){
+                    //무조건 검색이 완료되면 List Fragment를 먼저 보여주기.
+//                    supportFragmentManager.beginTransaction().replace(R.id.container_fragment, SearchListFragment()).commit()
+                    var state=true
+                    supportFragmentManager.beginTransaction().replace(R.id.container_fragment, SearchMapFragment(state)).commit()
+
+
+                }else{
+                    //무조건 검색이 완료되면 List Fragment를 먼저 보여주기.
+                    supportFragmentManager.beginTransaction().replace(R.id.container_fragment, SearchListFragment()).commit()
+
+
+                    // 탭버튼의 위치를 List Fragment Tab 으로 변경
+//                    binding.tabLayout.getTabAt(0)?.select()
+
+                }
+
 
             }
 
@@ -197,10 +223,10 @@ class MainActivity : AppCompatActivity() {
         binding.layoutChoice.choicePharmacy.setOnClickListener { clickChoice(it) }
         binding.layoutChoice.choicePark.setOnClickListener { clickChoice(it) }
         binding.layoutChoice.choiceFood.setOnClickListener { clickChoice(it) }
-        binding.layoutChoice.choice01.setOnClickListener { clickChoice(it) }
-        binding.layoutChoice.choice02.setOnClickListener { clickChoice(it) }
-        binding.layoutChoice.choice03.setOnClickListener { clickChoice(it) }
-        binding.layoutChoice.choice04.setOnClickListener { clickChoice(it) }
+        binding.layoutChoice.choiceCafe.setOnClickListener { clickChoice(it) }
+        binding.layoutChoice.choiceConvenienceStore.setOnClickListener { clickChoice(it) }
+        binding.layoutChoice.choiceHospital.setOnClickListener { clickChoice(it) }
+        binding.layoutChoice.choiceSubWay.setOnClickListener { clickChoice(it) }
     }
     var choiceID = R.id.choice_wc
 
@@ -225,10 +251,10 @@ class MainActivity : AppCompatActivity() {
             R.id.choice_pharmacy-> searchQuery="약국"
             R.id.choice_park-> searchQuery="공원"
             R.id.choice_food-> searchQuery="맛집"
-            R.id.choice_01-> searchQuery="화장실"
-            R.id.choice_02-> searchQuery="화장실"
-            R.id.choice_03-> searchQuery="화장실"
-            R.id.choice_04-> searchQuery="화장실"
+            R.id.choice_cafe-> searchQuery="카페"
+            R.id.choice_convenienceStore-> searchQuery="편의점"
+            R.id.choice_hospital-> searchQuery="병원"
+            R.id.choice_subWay-> searchQuery="지하철"
 
         }
 

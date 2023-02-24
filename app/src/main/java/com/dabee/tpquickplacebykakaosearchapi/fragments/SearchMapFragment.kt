@@ -2,11 +2,13 @@ package com.dabee.tpquickplacebykakaosearchapi.fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.dabee.tpquickplacebykakaosearchapi.R
 import com.dabee.tpquickplacebykakaosearchapi.activities.MainActivity
 import com.dabee.tpquickplacebykakaosearchapi.activities.PlaceUrlActivity
 import com.dabee.tpquickplacebykakaosearchapi.databinding.FragmentSearchListBinding
@@ -17,7 +19,7 @@ import net.daum.mf.map.api.MapPOIItem
 import net.daum.mf.map.api.MapPoint
 import net.daum.mf.map.api.MapView
 
-class SearchMapFragment:Fragment() {
+class SearchMapFragment (var state:Boolean):Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -33,14 +35,26 @@ class SearchMapFragment:Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 맵뷰를 뷰그룹에 추가하여 화면에 배치하도록... 여기까지만 해도 지도는 일단 보여짐.
-        binding.containerMapview.addView(mapView)
 
-        // 마커 or 말풍선을 클릭했을때 반응하기 - 반드시 마커 설정보다 먼저 맵뷰에 설정해 놓아야 동작함
-        mapView.setPOIItemEventListener(markerEventListener)
+        if (state){
+            binding.containerMapview.removeAllViews()
 
-        // 지도 관련 설정들..[지도위치, 마커 추가 등]
-        setMapAndMarkers()
+        }
+
+        Handler().postDelayed(Runnable {
+
+            // 맵뷰를 뷰그룹에 추가하여 화면에 배치하도록... 여기까지만 해도 지도는 일단 보여짐.
+            binding.containerMapview.addView(mapView)
+            // 마커 or 말풍선을 클릭했을때 반응하기 - 반드시 마커 설정보다 먼저 맵뷰에 설정해 놓아야 동작함
+            mapView.setPOIItemEventListener(markerEventListener)
+
+
+            // 지도 관련 설정들..[지도위치, 마커 추가 등]
+            setMapAndMarkers()
+
+
+        }, 100) // 0.6초 정도 딜레이를 준 후 시작
+
 
 
     }
